@@ -14,7 +14,6 @@ import { fetchFeaturedProducts } from "../components/featured-products/fetchFeat
 
 import { withStoreStaticProps } from "../lib/store-wrapper-ssg";
 import Carousel from "../components/carousel/Carousel";
-import carouselImages from "../components/carousel/data";
 
 const nodeId = process.env.NEXT_PUBLIC_DEMO_NODE_ID || "";
 const promotionId = process.env.NEXT_PUBLIC_DEMO_PROMO_ID || "";
@@ -45,6 +44,18 @@ const categories = [
     slug: "lifestyle",
     href: "/search/ep-swag/lifestyle",
     image: "/images/cat1.png",
+  },
+];
+
+const carouselImages = [
+  {
+    image: "/images/landing_1.jpg",
+  },
+  {
+    image: "images/landing_3.jpg",
+  },
+  {
+    image: "images/landing_2.jpg",
   },
 ];
 
