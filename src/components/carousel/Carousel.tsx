@@ -22,15 +22,13 @@ function Carousel({ images }) {
   };
 
   const slideLeft = () => {
-    console.log("slideLeft");
     setCurrent(current === 0 ? images.length - 1 : current - 1);
   };
-  console.log(current);
   return (
     <Box
       display="flex"
       width="100%"
-      minHeight="550px"
+      minHeight="650px"
       alignItems="center"
       justifyContent="flex-end"
       onMouseEnter={() => {
