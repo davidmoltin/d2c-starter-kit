@@ -14,7 +14,7 @@ function Carousel({ images }) {
       autoPlay &&
       setTimeout(() => {
         slideRight();
-      }, 2500);
+      }, 3000);
   });
 
   const slideRight = () => {
@@ -59,6 +59,7 @@ function Carousel({ images }) {
               justifyContent="flex-end"
               minHeight="550px"
               opacity={index === current ? 1 : 0}
+              transition="opacity 1s ease-in-out"
             >
               <Box
                 maxWidth="500px"
