@@ -1,8 +1,7 @@
 import { Button, Menu, MenuButton, MenuList, theme } from "@chakra-ui/react";
 import type { NavigationNode } from "../../../lib/build-site-navigation";
 import { globalBaseWidth, styles } from "../../../styles/theme";
-
-import NavItemContent from "./NavItemContent";
+import NextLink from "next/link";
 
 interface INavItem {
   item: NavigationNode;
@@ -20,7 +19,6 @@ const calculateOffset = (value: number, vertical: boolean = false) => {
 
 const NavItem = ({ item, headerPadding }: INavItem): JSX.Element => {
   const menuListPadding = 4;
-
   return (
     <Menu
       offset={[
@@ -28,15 +26,31 @@ const NavItem = ({ item, headerPadding }: INavItem): JSX.Element => {
         calculateOffset(headerPadding, true),
       ]}
     >
-      <MenuButton
-        as={Button}
-        variant="link"
-        marginRight="2rem"
-        color="gray.800"
-        _expanded={{ color: "brand.primary" }}
-      >
-        {item.name}
-      </MenuButton>
+      {item.children.map((child: NavigationNode) => (
+        <NextLink key={child.id} href={`/search${child.href}`} passHref>
+          <MenuButton
+            as={Button}
+            variant="link"
+            marginRight="2rem"
+            color="gray.800"
+            _expanded={{ color: "brand.primary" }}
+          >
+            {child.name}
+          </MenuButton>
+        </NextLink>
+      ))}
+
+      <NextLink href={`/search${item.href}`} passHref>
+        <MenuButton
+          as={Button}
+          variant="link"
+          marginRight="2rem"
+          color="gray.800"
+          _expanded={{ color: "brand.primary" }}
+        >
+          Browse All {item.name}
+        </MenuButton>
+      </NextLink>
       <MenuList
         w="100%"
         maxW={globalBaseWidth}
@@ -48,27 +62,10 @@ const NavItem = ({ item, headerPadding }: INavItem): JSX.Element => {
           boxShadow: `${theme.shadows["xl"]} !important`,
         }}
       >
-        <NavItemContent item={item} />
+        {/* <NavItemContent item={item} /> */}
       </MenuList>
     </Menu>
   );
 };
-
-// const NavItem = ({ item, headerPadding }: INavItem): JSX.Element => {
-//   const menuListPadding = 4;
-
-//   return (
-//     <Menu
-//       offset={[
-//         -calculateOffset(menuListPadding),
-//         calculateOffset(headerPadding, true),
-//       ]}
-//     >
-
-//         <NavItemContent item={item} />
-
-//      </Menu>
-//   );
-// };
 
 export default NavItem;
