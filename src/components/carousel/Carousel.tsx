@@ -28,7 +28,7 @@ function Carousel({ images }) {
     <Box
       display="flex"
       width="100%"
-      minHeight="650px"
+      minHeight="550px"
       alignItems="center"
       justifyContent="flex-end"
       onMouseEnter={() => {
@@ -57,7 +57,7 @@ function Carousel({ images }) {
               p={6}
               alignItems="center"
               justifyContent="flex-end"
-              minHeight="650px"
+              minHeight="550px"
               opacity={index === current ? 1 : 0}
             >
               <Box
