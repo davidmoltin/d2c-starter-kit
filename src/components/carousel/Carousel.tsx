@@ -1,6 +1,7 @@
 import { Box, Text, Button } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useState } from "react";
+import NextLink from "next/link";
 
 // @ts-ignore
 function Carousel({ images }) {
@@ -28,7 +29,7 @@ function Carousel({ images }) {
     <Box
       display="flex"
       width="100%"
-      minHeight="550px"
+      minHeight="700px"
       alignItems="center"
       justifyContent="flex-end"
       onMouseEnter={() => {
@@ -83,19 +84,21 @@ function Carousel({ images }) {
                 </Text>
                 <br />
                 <Text fontSize="lg" color="black">
-                  Click Get Started to start shopping!
+                  Click <strong>shop</strong> to start shopping!
                 </Text>
                 <br />
                 <br />
                 <Box textAlign="right">
-                  <Button
-                    size="lg"
-                    backgroundColor="#D37422"
-                    color="white"
-                    width="200px"
-                  >
-                    shop
-                  </Button>
+                  <NextLink href="/search/ep-swag/new-hire-bundle">
+                    <Button
+                      size="lg"
+                      backgroundColor="#D37422"
+                      color="white"
+                      width="200px"
+                    >
+                      shop
+                    </Button>
+                  </NextLink>
                 </Box>
               </Box>
             </Box>

@@ -49,13 +49,16 @@ const categories = [
 
 const carouselImages = [
   {
+    image: "images/landing_5.png",
+  },
+  {
     image: "/images/landing_1.jpg",
   },
   {
     image: "images/landing_3.jpg",
   },
   {
-    image: "images/landing_2.jpg",
+    image: "images/landing_4.jpg",
   },
 ];
 
@@ -85,7 +88,7 @@ const Home: NextPage<IHome> = () => {
             <Text fontSize="20px">1</Text>
           </Circle>
           <Text fontSize="md" fontWeight="semibold" ml={2}>
-            click get started
+            click shop
           </Text>
         </Box>
         <Box display="flex" alignItems="center">
@@ -143,14 +146,20 @@ const Home: NextPage<IHome> = () => {
           justifyContent="center"
           paddingBottom="40px"
         >
-          <Button
-            size="lg"
-            backgroundColor="#D37422"
-            color="white"
-            width="200px"
-          >
-            shop
-          </Button>
+          <NextLink href="/search/ep-swag/new-hire-bundle">
+            <Button
+              size="lg"
+              backgroundColor="#D37422"
+              color="white"
+              width="200px"
+              _hover={{
+                backgroundColor: "#D37422",
+                color: "white",
+              }}
+            >
+              shop
+            </Button>
+          </NextLink>
         </Box>
       </Grid>
     </>
