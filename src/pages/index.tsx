@@ -56,6 +56,7 @@ const carouselImages = [
   },
   {
     image: "images/landing_3.jpg",
+    display: "none",
   },
   {
     image: "images/landing_4.jpg",
@@ -65,104 +66,107 @@ const carouselImages = [
 // const Home: NextPage<IHome> = ({ promotion, featuredProducts }) => {
 const Home: NextPage<IHome> = () => {
   return (
-    <>
-      {/* @ts-ignore */}
-      <Carousel images={carouselImages} />
+    <Box display="flex" justifyContent="center">
+      <Box display="flex" flexDirection="column" maxWidth="1300px">
+        {/* @ts-ignore */}
+        <Carousel images={carouselImages} />
 
-      <Grid
-        templateColumns="repeat(4, 1fr)"
-        background="#ECE5E1"
-        padding="20px"
-        justifyItems="center"
-      >
-        <Text fontSize="3xl">choose your own path</Text>
-        <Box display="flex" alignItems="center">
-          <Circle
-            size="30px"
-            bg="#0033CC"
-            color="white"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Text fontSize="20px">1</Text>
-          </Circle>
-          <Text fontSize="md" fontWeight="semibold" ml={2}>
-            click shop
-          </Text>
-        </Box>
-        <Box display="flex" alignItems="center">
-          <Circle
-            size="30px"
-            bg="#0033CC"
-            color="white"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Text fontSize="20px">2</Text>
-          </Circle>
-          <Text fontSize="md" fontWeight="semibold" ml={2}>
-            pick your gifts
-          </Text>
-        </Box>
-        <Box display="flex" alignItems="center">
-          <Circle
-            size="30px"
-            bg="#0033CC"
-            color="white"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Text fontSize="20px">3</Text>
-          </Circle>
-          <Text fontSize="md" fontWeight="semibold" ml={2}>
-            checkout with your code
-          </Text>
-        </Box>
-      </Grid>
-
-      <Grid templateColumns="repeat(4, 1fr)" background="#F5F5F5">
-        {categories.map((category, index) => {
-          return (
-            <NextLink key={index} href={category.href}>
-              <Box padding="15px" cursor="pointer">
-                <Image src={category.image} alt={category.name} />
-                <Text fontSize="md" fontWeight="semibold" align="center">
-                  {category.name}
-                </Text>
-              </Box>
-            </NextLink>
-          );
-        })}
-        <Box
-          bgImage="/images/landing_2.jpg"
-          bgPos="top"
-          bgSize="cover"
-          width="100%"
-          display="flex"
-          alignItems="flex-end"
-          justifyContent="center"
-          paddingBottom="40px"
+        <Grid
+          templateColumns="repeat(4, 1fr)"
+          background="#ECE5E1"
+          padding="20px"
+          justifyItems="center"
+          margin={0}
         >
-          <NextLink href="/search/ep-swag/new-hire-bundle">
-            <Button
-              size="lg"
-              backgroundColor="#D37422"
+          <Text fontSize="3xl">choose your own path</Text>
+          <Box display="flex" alignItems="center">
+            <Circle
+              size="30px"
+              bg="#0033CC"
               color="white"
-              width="200px"
-              _hover={{
-                backgroundColor: "#D37422",
-                color: "white",
-              }}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
             >
-              shop
-            </Button>
-          </NextLink>
-        </Box>
-      </Grid>
-    </>
+              <Text fontSize="20px">1</Text>
+            </Circle>
+            <Text fontSize="md" fontWeight="semibold" ml={2}>
+              click shop
+            </Text>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Circle
+              size="30px"
+              bg="#0033CC"
+              color="white"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Text fontSize="20px">2</Text>
+            </Circle>
+            <Text fontSize="md" fontWeight="semibold" ml={2}>
+              pick your gifts
+            </Text>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Circle
+              size="30px"
+              bg="#0033CC"
+              color="white"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Text fontSize="20px">3</Text>
+            </Circle>
+            <Text fontSize="md" fontWeight="semibold" ml={2}>
+              checkout with your code
+            </Text>
+          </Box>
+        </Grid>
+
+        <Grid templateColumns="repeat(4, 1fr)" background="#F5F5F5">
+          {categories.map((category, index) => {
+            return (
+              <NextLink key={index} href={category.href}>
+                <Box padding="15px" cursor="pointer">
+                  <Image src={category.image} alt={category.name} />
+                  <Text fontSize="md" fontWeight="semibold" align="center">
+                    {category.name}
+                  </Text>
+                </Box>
+              </NextLink>
+            );
+          })}
+          <Box
+            bgImage="/images/landing_2.jpg"
+            bgPos="top"
+            bgSize="cover"
+            width="100%"
+            display="flex"
+            alignItems="flex-end"
+            justifyContent="center"
+            paddingBottom="40px"
+          >
+            <NextLink href="/search/ep-swag/new-hire-bundle">
+              <Button
+                size="lg"
+                backgroundColor="#D37422"
+                color="white"
+                width="200px"
+                _hover={{
+                  backgroundColor: "#D37422",
+                  color: "white",
+                }}
+              >
+                shop
+              </Button>
+            </NextLink>
+          </Box>
+        </Grid>
+      </Box>
+    </Box>
   );
 };
 

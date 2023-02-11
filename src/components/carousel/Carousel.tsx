@@ -29,7 +29,7 @@ function Carousel({ images }) {
     <Box
       display="flex"
       width="100%"
-      minHeight="700px"
+      minHeight="550px"
       alignItems="center"
       justifyContent="flex-end"
       onMouseEnter={() => {
@@ -69,6 +69,7 @@ function Carousel({ images }) {
                 marginRight="30px"
                 backgroundColor="rgba(239, 239, 240,0.6)"
                 borderRadius={10}
+                display={image.display}
               >
                 <Text fontSize="3xl" color="black">
                   Welcome to Elastic Path
@@ -95,6 +96,10 @@ function Carousel({ images }) {
                       backgroundColor="#D37422"
                       color="white"
                       width="200px"
+                      _hover={{
+                        backgroundColor: "#D37422",
+                        color: "white",
+                      }}
                     >
                       shop
                     </Button>
