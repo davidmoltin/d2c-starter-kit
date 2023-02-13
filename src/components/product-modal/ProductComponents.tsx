@@ -33,7 +33,7 @@ const ProductComponents = ({
                       <option
                         key={id}
                         value={JSON.stringify({ [id]: quantity })}
-                        label={`${optionData.attributes.name} (Quantity: ${quantity}) ${optionData.attributes.sku}
+                        label={`${optionData.attributes.name} (Quantity: ${quantity}) ${optionData.attributes.slug}
                         `}
                       />
                     );
