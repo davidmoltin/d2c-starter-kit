@@ -57,7 +57,12 @@ function Carousel({ images }) {
               bgSize="cover"
               p={6}
               alignItems="center"
-              justifyContent="flex-end"
+              justifyContent={{
+                base: "center",
+                sm: "center",
+                md: "flex-end",
+                lg: "flex-end",
+              }}
               minHeight="550px"
               opacity={index === current ? 1 : 0}
               transition="opacity 1s ease-in-out"
