@@ -1,14 +1,4 @@
-import { Fragment } from "react";
-import {
-  Flex,
-  Box,
-  RadioGroup,
-  Stack,
-  Radio,
-  Text,
-  Tag,
-  Divider,
-} from "@chakra-ui/react";
+import { Flex, Box, Select, Text } from "@chakra-ui/react";
 import { ProductResponse } from "@moltin/sdk";
 
 interface IProductComponentsProps {
@@ -26,56 +16,29 @@ const ProductComponents = ({
         const allOptions = product.attributes.components[cmpName].options;
         const bundle_configuration = product.meta.bundle_configuration;
         return (
-          <Box key={cmpName} m="2" w="full">
+          <Box key={cmpName} m="2">
             <Text mb="2">{cmpName}</Text>
             {bundle_configuration ? (
-              <Box borderWidth="1px" borderRadius="lg" p="6" w="full">
-                <RadioGroup
+              <Box borderWidth="1px" borderRadius="lg" p="6" minW={350}>
+                <Select
                   value={JSON.stringify(
                     bundle_configuration.selected_options[cmpName]
                   )}
                 >
-                  <Stack direction="column">
-                    {allOptions.map(({ id, quantity }) => {
-                      const optionData = components.find(
-                        (item) => item.id === id
-                      )!;
-                      return (
-                        <Fragment key={id}>
-                          <Radio
-                            position="relative"
-                            key={id}
-                            value={JSON.stringify({ [id]: quantity })}
-                            disabled={
-                              Object.keys(
-                                bundle_configuration.selected_options[cmpName]
-                              )[0] !== id
-                            }
-                          >
-                            <Box
-                              mt="1"
-                              mb="2"
-                              fontWeight="semibold"
-                              as="h4"
-                              lineHeight="tight"
-                              noOfLines={1}
-                            >
-                              {optionData.attributes.name}
-                            </Box>
-                            <Tag mb="2">Quantity: {quantity}</Tag>
-                            <Text>
-                              {product.meta.component_products?.[id]
-                                ?.display_price.without_tax.formatted || null}
-                            </Text>
-                          </Radio>
-                          {allOptions.length > 1 ? (
-                            <Divider orientation="horizontal" />
-                          ) : null}
-                        </Fragment>
-                      );
-                    })}
-                  </Stack>
-                </RadioGroup>
+                  {allOptions.map(({ id, quantity }) => {
+                    const optionData = components.find(
+                      (item) => item.id === id
+                    )!;
+                    return (
+                      <option
+                        key={id}
+                        value={JSON.stringify({ [id]: quantity })}
+                        label={`${optionData.attributes.name} (Quantity: ${quantity}) ${optionData.attributes.sku}
+                        `}
+                      />
+                    );
+                  })}
+                </Select>
               </Box>
             ) : null}
           </Box>
