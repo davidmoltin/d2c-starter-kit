@@ -57,6 +57,7 @@ const Header = ({ nav }: IHeader): JSX.Element => {
         borderBottom="1px"
         borderColor="gray.200"
         paddingLeft={10}
+        display={{ base: "none", sm: "none", md: "flex" }}
       >
         <NavBar nav={nav} headerPadding={headerPadding} />
       </Box>

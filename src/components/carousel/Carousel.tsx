@@ -53,7 +53,7 @@ function Carousel({ images }) {
               width="100%"
               height="100%"
               bgImage={image.image}
-              bgPos="top"
+              bgPos={{ base: "left", sm: "left", md: "top", lg: "top" }}
               bgSize="cover"
               p={6}
               alignItems="center"

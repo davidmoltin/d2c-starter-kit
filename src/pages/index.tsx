@@ -73,7 +73,17 @@ const Home: NextPage<IHome> = () => {
         <Carousel images={carouselImages} />
 
         <Grid
-          templateColumns="repeat(4, 1fr)"
+          templateColumns={{
+            sm: "1fr",
+            md: "repeat(4, 1fr)",
+            lg: "repeat(4, 1fr)",
+          }}
+          gridTemplateRows={{
+            base: "1fr 2fr 2fr 2fr",
+            sm: "1fr 2fr 2fr 2fr",
+            md: "1fr",
+            lg: "1fr",
+          }}
           background="#ECE5E1"
           padding="20px"
           justifyItems="center"
@@ -127,7 +137,14 @@ const Home: NextPage<IHome> = () => {
           </Box>
         </Grid>
 
-        <Grid templateColumns="repeat(4, 1fr)" background="#F5F5F5">
+        <Grid
+          templateColumns={{
+            sm: "1fr",
+            md: "repeat(4, 1fr)",
+            lg: "repeat(4, 1fr)",
+          }}
+          background="#F5F5F5"
+        >
           {categories.map((category, index) => {
             return (
               <NextLink key={index} href={category.href}>
@@ -145,10 +162,10 @@ const Home: NextPage<IHome> = () => {
             bgPos="top"
             bgSize="cover"
             width="100%"
-            display="flex"
             alignItems="flex-end"
             justifyContent="center"
             paddingBottom="40px"
+            display={{ base: "none", sm: "none", md: "flex", lg: "flex" }}
           >
             <NextLink href="/search/ep-swag/new-hire-bundle">
               <Button
