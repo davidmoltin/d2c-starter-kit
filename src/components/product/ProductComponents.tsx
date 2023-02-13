@@ -19,7 +19,13 @@ const ProductComponents = ({
           <Box key={cmpName} m="2">
             <Text mb="2">{cmpName}</Text>
             {bundle_configuration ? (
-              <Box borderWidth="1px" borderRadius="lg" p="6" minW={350}>
+              <Box
+                borderWidth="1px"
+                borderRadius="lg"
+                p="6"
+                minW={350}
+                maxW={450}
+              >
                 <Select
                   value={JSON.stringify(
                     bundle_configuration.selected_options[cmpName]
