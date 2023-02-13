@@ -14,6 +14,7 @@ import { fetchFeaturedProducts } from "../components/featured-products/fetchFeat
 
 import { withStoreStaticProps } from "../lib/store-wrapper-ssg";
 import Carousel from "../components/carousel/Carousel";
+import { globalBaseWidth } from "../styles/theme";
 
 const nodeId = process.env.NEXT_PUBLIC_DEMO_NODE_ID || "";
 const promotionId = process.env.NEXT_PUBLIC_DEMO_PROMO_ID || "";
@@ -67,7 +68,7 @@ const carouselImages = [
 const Home: NextPage<IHome> = () => {
   return (
     <Box display="flex" justifyContent="center">
-      <Box display="flex" flexDirection="column" maxWidth="1300px">
+      <Box display="flex" flexDirection="column" maxWidth={globalBaseWidth}>
         {/* @ts-ignore */}
         <Carousel images={carouselImages} />
 
