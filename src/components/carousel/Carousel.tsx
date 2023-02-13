@@ -53,7 +53,7 @@ function Carousel({ images }) {
               width="100%"
               height="100%"
               bgImage={image.image}
-              bgPos="top"
+              bgPos={{ base: "left", sm: "left", md: "top", lg: "top" }}
               bgSize="cover"
               p={6}
               alignItems="center"
@@ -66,7 +66,7 @@ function Carousel({ images }) {
                 maxWidth="500px"
                 p={4}
                 textAlign="left"
-                marginRight="30px"
+                marginRight={{ base: "0", sm: "0", md: "30px", lg: "30px" }}
                 backgroundColor="rgba(239, 239, 240,0.6)"
                 borderRadius={10}
                 display={image.display}
